@@ -46,10 +46,22 @@ shape = SubResource("RectangleShape2D_gwnis")
 [node name="Ataque" type="Node" parent="."]
 
 [node name="TempoLG" type="Timer" parent="Ataque"]
+unique_name_in_owner = true
 wait_time = 1.5
 
 [node name="TempoAtqLG" type="Timer" parent="Ataque/TempoLG"]
+unique_name_in_owner = true
 wait_time = 0.075
+
+[node name="TempoTornado" type="Timer" parent="Ataque"]
+unique_name_in_owner = true
+
+[node name="TempoAtqTrnd" type="Timer" parent="Ataque/TempoTornado"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="JavelinBase" type="Node2D" parent="Ataque"]
+unique_name_in_owner = true
 
 [node name="AreaDetectaInimigo" type="Area2D" parent="."]
 collision_layer = 4
@@ -62,6 +74,8 @@ shape = SubResource("CircleShape2D_btcbx")
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Ataque/TempoLG" to="." method="_on_tempo_lg_timeout"]
 [connection signal="timeout" from="Ataque/TempoLG/TempoAtqLG" to="." method="_on_tempo_atq_lg_timeout"]
+[connection signal="timeout" from="Ataque/TempoTornado" to="." method="_on_tempo_tornado_timeout"]
+[connection signal="timeout" from="Ataque/TempoTornado/TempoAtqTrnd" to="." method="_on_tempo_atq_trnd_timeout"]
 [connection signal="body_entered" from="AreaDetectaInimigo" to="." method="_on_area_detecta_inimigo_body_entered"]
 [connection signal="body_exited" from="AreaDetectaInimigo" to="." method="_on_area_detecta_inimigo_body_exited"]
 

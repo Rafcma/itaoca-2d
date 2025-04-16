@@ -2,7 +2,7 @@ extends Area2D
 
 var nivel = 1
 var hp = 1
-var velocidade = 100
+var velocidade = 100.0
 var damage = 5
 var forca_empurrao = 100
 var tamanho_ataque = 1.0

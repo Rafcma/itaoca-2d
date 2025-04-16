@@ -17,6 +17,7 @@ Aprimore seus ataques e destrua as ordas de inimigos.
 run/main_scene="uid://cnx17n0s1knse"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+config/git_sha="901eedc4e5eff1da90bcb9e1f457c0e0c2954cb9"
 
 [display]
 
@@ -29,6 +30,10 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/git_sha_project_setting/plugin.cfg")
+
+[global_group]
+
+loot=""
 
 [input]
 

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnbniogca6e67"]
+
+[ext_resource type="Texture2D" uid="uid://8rk1temasn8x" path="res://Textures/Items/Weapons/javelin_3_new.png" id="1_3dnds"]
+[ext_resource type="Script" uid="uid://dd765iykrajsg" path="res://Script/javelin.gd" id="1_sa8vd"]
+[ext_resource type="AudioStream" uid="uid://o82ar20nh2ry" path="res://Audio/SoundEffect/woosh.wav" id="3_tlaq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kw3c"]
+size = Vector2(5.65686, 33.9411)
+
+[node name="Javelin" type="Area2D" groups=["ataque"]]
+top_level = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_sa8vd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3dnds")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.72529e-07, -1.19209e-07)
+rotation = -0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7kw3c")
+
+[node name="TempoAtaque" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="MudaDirecao" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="ResetaTempo" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[node name="som_ataque" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tlaq4")
+volume_db = -10.0
+pitch_scale = 1.1
+
+[connection signal="timeout" from="TempoAtaque" to="." method="_on_tempo_ataque_timeout"]
+[connection signal="timeout" from="MudaDirecao" to="." method="_on_muda_direcao_timeout"]
+[connection signal="timeout" from="ResetaTempo" to="." method="_on_reseta_tempo_timeout"]
