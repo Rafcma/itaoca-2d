@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://hubc401sbbn7"]
+
+[ext_resource type="Script" uid="uid://brffhii8x4ns7" path="res://Script/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://bjoywugxwyoch" path="res://Textures/Player/player_sprite.png" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://c68a42dp83gs" path="res://Utilidades/hurt_box.tscn" id="3_btcbx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
+size = Vector2(12, 21)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_btcbx"]
+radius = 368.049
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_4ntmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l8h54")
+hframes = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3)
+shape = SubResource("CapsuleShape2D_4ntmi")
+
+[node name="TimerAndar" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="HurtBox" parent="." instance=ExtResource("3_btcbx")]
+position = Vector2(-1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(3, 2.5)
+shape = SubResource("RectangleShape2D_gwnis")
+
+[node name="Ataque" type="Node" parent="."]
+
+[node name="TempoLG" type="Timer" parent="Ataque"]
+wait_time = 1.5
+
+[node name="TempoAtqLG" type="Timer" parent="Ataque/TempoLG"]
+wait_time = 0.075
+
+[node name="AreaDetectaInimigo" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectaInimigo"]
+shape = SubResource("CircleShape2D_btcbx")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="timeout" from="Ataque/TempoLG" to="." method="_on_tempo_lg_timeout"]
+[connection signal="timeout" from="Ataque/TempoLG/TempoAtqLG" to="." method="_on_tempo_atq_lg_timeout"]
+[connection signal="body_entered" from="AreaDetectaInimigo" to="." method="_on_area_detecta_inimigo_body_entered"]
+[connection signal="body_exited" from="AreaDetectaInimigo" to="." method="_on_area_detecta_inimigo_body_exited"]
+
+[editable path="HurtBox"]

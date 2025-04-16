@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmti853fidcvs"]
+
+[ext_resource type="Texture2D" uid="uid://8kjer2mcedla" path="res://Textures/Items/Weapons/tornado.png" id="1_veyuf"]
+[ext_resource type="Script" uid="uid://c3xd48q32rgsg" path="res://Script/tornado.gd" id="1_x5kvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5kvp"]
+size = Vector2(17, 26)
+
+[node name="Tornado" type="Area2D" groups=["ataque"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_x5kvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_veyuf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_x5kvp")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="som_tornado" type="AudioStreamPlayer" parent="."]

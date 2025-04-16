@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnx17n0s1knse"]
+
+[ext_resource type="Texture2D" uid="uid://bnleqpmrjxidm" path="res://Textures/dirt_full_new.png" id="1_rabi5"]
+[ext_resource type="PackedScene" uid="uid://hubc401sbbn7" path="res://Player/player.tscn" id="2_lotnt"]
+[ext_resource type="PackedScene" uid="uid://hkifksf23nfo" path="res://Utilidades/inimigo_spawner.tscn" id="3_1oujc"]
+[ext_resource type="Script" uid="uid://be4nsgongmgi2" path="res://Script/info_spawner.gd" id="4_x3chl"]
+[ext_resource type="PackedScene" uid="uid://bpql6dh2xt4ps" path="res://Inimigo/inimigo.tscn" id="5_44mls"]
+
+[sub_resource type="Resource" id="Resource_s8ap1"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 0
+fim_tempo = 5
+inimigo = ExtResource("5_44mls")
+inimigo_num = 1
+inimigo_tempo_spawn = 0
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[sub_resource type="Resource" id="Resource_44mls"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 5
+fim_tempo = 60
+inimigo = ExtResource("5_44mls")
+inimigo_num = 10
+inimigo_tempo_spawn = 0
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[node name="Mundo" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+texture = ExtResource("1_rabi5")
+region_enabled = true
+region_rect = Rect2(0, 0, 4000, 4000)
+
+[node name="Player" parent="." instance=ExtResource("2_lotnt")]
+
+[node name="InimigoSpawner" parent="." instance=ExtResource("3_1oujc")]
+spawns = Array[ExtResource("4_x3chl")]([SubResource("Resource_s8ap1"), SubResource("Resource_44mls")])
