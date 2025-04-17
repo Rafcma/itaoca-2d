@@ -9,8 +9,9 @@ size = Vector2(20, 22)
 
 [node name="GemaEXP" type="Area2D" groups=["loot"]]
 scale = Vector2(0.5, 0.5)
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_mefi4")
-exp = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qos3b")
@@ -22,3 +23,5 @@ shape = SubResource("RectangleShape2D_qos3b")
 [node name="som_coleta" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_u03p4")
 volume_db = -10.0
+
+[connection signal="finished" from="som_coleta" to="." method="_on_som_coleta_finished"]

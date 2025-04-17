@@ -4,7 +4,7 @@ var hp = 80
 var velocidade_movimento = 40.0
 var ultimo_mov = Vector2.UP
 
-var exp = 0
+var experiencia = 0
 var exp_nivel = 1
 var exp_coletado = 0
 
@@ -39,11 +39,21 @@ var javelin_nivel = 1
 #Relação com Inimigo
 var inimigo_perto = []
 
+#GUI
+@onready var barra_exp = get_node("%BarraExp")
+@onready var lbl_nivel = get_node("%lbl_nivel")
+@onready var painel_nivel = get_node("%SobeNivel")
+@onready var upgrade_opcoes = get_node("%UpgradeOpcoes")
+@onready var item_opcoes = preload("res://Utilidades/item_opcoes.tscn")
+@onready var som_sobe_nivel = get_node("%som_sobe_nivel")
+
 @onready var sprite = $Sprite2D
 @onready var timer_andar: Timer = $TimerAndar
 
+
 func _ready() -> void:
 	ataque()
+	ajustar_barra(experiencia, calcula_experiencia_max())
 
 func _process(_delta):
 	movimento()
@@ -142,3 +152,70 @@ func _on_area_detecta_inimigo_body_entered(body: Node2D) -> void:
 func _on_area_detecta_inimigo_body_exited(body: Node2D) -> void:
 	if inimigo_perto.has(body):
 		inimigo_perto.erase(body)
+
+
+func _on_puxa_exp_area_entered(area: Area2D) -> void:
+	if area.is_in_group("loot"):
+		area.alvo = self
+
+func _on_coleta_exp_area_entered(area: Area2D) -> void:
+	if area.is_in_group("loot"):
+		var exp_gema = area.coleta()
+		print("Collected exp_gema: ", exp_gema, " Type: ", typeof(exp_gema))
+		calcula_experiencia(exp_gema)
+		
+func calcula_experiencia(exp_gema):
+	var exp_necessario = calcula_experiencia_max()
+	var valor_exp = exp_gema if typeof(exp_gema) == TYPE_INT or typeof(exp_gema) == TYPE_FLOAT else 0
+	exp_coletado += valor_exp
+	if experiencia + exp_coletado >= exp_necessario: #sobe de nivel
+		exp_coletado -= exp_necessario - experiencia
+		exp_nivel += 1
+		lbl_nivel.text = str("--Nível: ", exp_nivel)
+		experiencia = 0
+		exp_necessario = calcula_experiencia_max()
+		sobe_nivel()
+	else: 
+		experiencia += exp_coletado
+		exp_coletado = 0
+	
+	ajustar_barra(experiencia,exp_necessario)
+
+func calcula_experiencia_max():
+	var exp_max = exp_nivel
+	if exp_nivel < 20:
+		exp_max = exp_nivel * 5
+	elif exp_nivel < 40:
+		exp_max = 95 * (exp_nivel - 19) * 8
+	else:
+		exp_max = 255 + (exp_nivel - 39) * 12
+	
+	return exp_max
+
+func ajustar_barra(set_value=1,set_max_value=100):
+	barra_exp.value = set_value
+	barra_exp.max_value = set_max_value
+
+func sobe_nivel():
+	som_sobe_nivel.play()
+	lbl_nivel.text = str("--Nível: ", exp_nivel)
+	var tween = painel_nivel.create_tween()
+	tween.tween_property(painel_nivel,"position", Vector2(220,50),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	tween.play()
+	painel_nivel.visible = true
+	var opcoes = 0
+	var opcoes_totais = 3
+	while opcoes < opcoes_totais:
+		var opcao_de_escolha = item_opcoes.instantiate()
+		upgrade_opcoes.add_child(opcao_de_escolha)
+		opcoes +=1
+	get_tree().paused = true
+
+func upgrade_personagem(upgrade):
+	var opcao_children = upgrade_opcoes.get_children()
+	for i in opcao_children:
+		i.queue_free()
+	painel_nivel.visible = false
+	painel_nivel.position = Vector2(800,50)
+	get_tree().paused = false
+	calcula_experiencia(0)

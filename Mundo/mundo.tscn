@@ -37,3 +37,6 @@ region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="InimigoSpawner" parent="." instance=ExtResource("3_1oujc")]
 spawns = Array[ExtResource("4_x3chl")]([SubResource("Resource_s8ap1"), SubResource("Resource_44mls")])
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+position = Vector2(70, 26)

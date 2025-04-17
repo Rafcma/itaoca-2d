@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://hubc401sbbn7"]
+[gd_scene load_steps=13 format=3 uid="uid://hubc401sbbn7"]
 
 [ext_resource type="Script" uid="uid://brffhii8x4ns7" path="res://Script/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bjoywugxwyoch" path="res://Textures/Player/player_sprite.png" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://c68a42dp83gs" path="res://Utilidades/hurt_box.tscn" id="3_btcbx"]
+[ext_resource type="Texture2D" uid="uid://b03shbv26dnjc" path="res://Textures/GUI/exp_background.png" id="4_fhl08"]
+[ext_resource type="Texture2D" uid="uid://d1blk6aiwo1cb" path="res://Textures/GUI/exp_progress.png" id="5_vtle1"]
+[ext_resource type="FontFile" uid="uid://cj2y5kom35y55" path="res://Font/tenderness.otf" id="6_od3ui"]
+[ext_resource type="AudioStream" uid="uid://df58kqvldsoga" path="res://Font/levelup.ogg" id="7_vtle1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
 radius = 4.0
@@ -13,6 +17,11 @@ size = Vector2(12, 21)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btcbx"]
 radius = 368.049
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwnis"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k53q1"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
@@ -71,6 +80,81 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectaInimigo"]
 shape = SubResource("CircleShape2D_btcbx")
 
+[node name="PuxaExp" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuxaExp"]
+shape = SubResource("CircleShape2D_gwnis")
+
+[node name="ColetaExp" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColetaExp"]
+shape = SubResource("CircleShape2D_k53q1")
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="BarraExp" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("4_fhl08")
+texture_progress = ExtResource("5_vtle1")
+
+[node name="lbl_nivel" type="Label" parent="GUILayer/GUI/BarraExp"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_right = 640.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("6_od3ui")
+theme_override_font_sizes/font_size = 16
+text = "--Nível: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SobeNivel" type="Panel" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 800.0
+offset_top = 50.0
+offset_right = 1000.0
+offset_bottom = 300.0
+
+[node name="lbl_sobenivel" type="Label" parent="GUILayer/GUI/SobeNivel"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_od3ui")
+text = "Subiu de Nível !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeOpcoes" type="VBoxContainer" parent="GUILayer/GUI/SobeNivel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 190.0
+offset_bottom = 100.0
+
+[node name="som_sobe_nivel" type="AudioStreamPlayer" parent="GUILayer/GUI/SobeNivel"]
+unique_name_in_owner = true
+stream = ExtResource("7_vtle1")
+volume_db = -15.0
+pitch_scale = 1.1
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Ataque/TempoLG" to="." method="_on_tempo_lg_timeout"]
 [connection signal="timeout" from="Ataque/TempoLG/TempoAtqLG" to="." method="_on_tempo_atq_lg_timeout"]
@@ -78,5 +162,7 @@ shape = SubResource("CircleShape2D_btcbx")
 [connection signal="timeout" from="Ataque/TempoTornado/TempoAtqTrnd" to="." method="_on_tempo_atq_trnd_timeout"]
 [connection signal="body_entered" from="AreaDetectaInimigo" to="." method="_on_area_detecta_inimigo_body_entered"]
 [connection signal="body_exited" from="AreaDetectaInimigo" to="." method="_on_area_detecta_inimigo_body_exited"]
+[connection signal="area_entered" from="PuxaExp" to="." method="_on_puxa_exp_area_entered"]
+[connection signal="area_entered" from="ColetaExp" to="." method="_on_coleta_exp_area_entered"]
 
 [editable path="HurtBox"]

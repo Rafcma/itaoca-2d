@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgdkiio2cm54"]
+
+[ext_resource type="Texture2D" uid="uid://byqbwirv8w0f7" path="res://Textures/Items/Weapons/sword.png" id="1_nkas1"]
+[ext_resource type="Script" uid="uid://d0jyl2id7fu2d" path="res://Script/item_opcoes.gd" id="1_sxiyv"]
+[ext_resource type="FontFile" uid="uid://cj2y5kom35y55" path="res://Font/tenderness.otf" id="2_sxiyv"]
+
+[node name="ItemOpcoes" type="ColorRect"]
+custom_minimum_size = Vector2(180, 50)
+anchors_preset = -1
+anchor_right = 0.281
+anchor_bottom = 0.139
+offset_right = 0.159988
+offset_bottom = -0.0400047
+color = Color(0.633757, 0.633757, 0.633757, 1)
+script = ExtResource("1_sxiyv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 26.0
+offset_bottom = 26.0
+color = Color(0, 0, 0, 1)
+
+[node name="IconeItem" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_nkas1")
+
+[node name="lbl_nome" type="Label" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 2.0
+offset_right = 79.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_sxiyv")
+text = "Nome"
+horizontal_alignment = 1
+
+[node name="lbl_descricao" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 27.0
+offset_right = 166.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_sxiyv")
+theme_override_font_sizes/font_size = 8
+text = "Descrição do Item"
+autowrap_mode = 3
+
+[node name="lbl_nivel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 3.0
+offset_right = 173.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("2_sxiyv")
+theme_override_font_sizes/font_size = 12
+text = "Nível 1:"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
