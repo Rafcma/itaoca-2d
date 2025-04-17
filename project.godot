@@ -17,7 +17,11 @@ Aprimore seus ataques e destrua as ordas de inimigos.
 run/main_scene="uid://cnx17n0s1knse"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
-config/git_sha="5e471bbf4377aa5383b10f31d01bc4df8e268b4e"
+config/git_sha="7664b4d00ce97bb4194d52f747e1e09ac91dcd43"
+
+[autoload]
+
+UpgradeDb="*res://Utilidades/upgrade_db.tscn"
 
 [display]
 

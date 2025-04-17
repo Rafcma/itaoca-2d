@@ -20,7 +20,7 @@ func _ready() -> void:
 		sprite.texture = sprite_verde
 	else:
 		sprite.texture = sprite_vermelho
-		
+
 func _physics_process(delta):
 	if alvo != null:
 		global_position = global_position.move_toward(alvo.global_position, velocidade)
@@ -31,7 +31,6 @@ func coleta():
 	collision.call_deferred("set", "disabled", true)
 	sprite.visible = false
 	return experiencia
-
 
 func _on_som_coleta_finished() -> void:
 	queue_free()

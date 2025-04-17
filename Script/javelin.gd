@@ -31,7 +31,7 @@ signal remove_do_array(object)
 func _ready() -> void:
 	update_javelin()
 	_on_reseta_tempo_timeout()
-	
+
 func update_javelin():
 	nivel = player.javelin_nivel
 	match nivel:
@@ -40,9 +40,34 @@ func update_javelin():
 			velocidade = 200.0
 			damage = 10
 			forca_empurrao = 100
+			caminhos = 1
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+			velocidade_ataque = 4.0 * (1 - player.tempo_magia)
+		2:
+			hp = 999
+			velocidade = 200.0
+			damage = 10
+			forca_empurrao = 100
+			caminhos = 2
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+			velocidade_ataque = 4.0 * (1 - player.tempo_magia)
+		3:
+			hp = 999
+			velocidade = 200.0
+			damage = 10
+			forca_empurrao = 100
 			caminhos = 3
-			tamanho_ataque = 1.0
-			velocidade_ataque = 4.0
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+			velocidade_ataque = 4.0 * (1 - player.tempo_magia)
+		4:
+			hp = 999
+			velocidade = 200.0
+			damage = 15
+			forca_empurrao = 120
+			caminhos = 3
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+			velocidade_ataque = 4.0 * (1 - player.tempo_magia)
+		
 	
 	scale = Vector2(1.0,1.0) * tamanho_ataque
 	tempo_ataque.wait_time = velocidade_ataque
@@ -71,7 +96,7 @@ func add_caminhos():
 	libera_ataque(true)
 	alvo = alvo_array[0]
 	process_caminho()
-	
+
 func process_caminho():
 	angulo = global_position.direction_to(alvo)
 	muda_direcao.start()
@@ -105,8 +130,6 @@ func _on_muda_direcao_timeout() -> void:
 		muda_direcao.stop()
 		tempo_ataque.start()
 		libera_ataque(false)
-		
-
 
 func _on_reseta_tempo_timeout() -> void:
 	var escolhe_direcao = randi() % 4

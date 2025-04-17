@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnx17n0s1knse"]
+[gd_scene load_steps=9 format=3 uid="uid://cnx17n0s1knse"]
 
 [ext_resource type="Texture2D" uid="uid://bnleqpmrjxidm" path="res://Textures/dirt_full_new.png" id="1_rabi5"]
 [ext_resource type="PackedScene" uid="uid://hubc401sbbn7" path="res://Player/player.tscn" id="2_lotnt"]
 [ext_resource type="PackedScene" uid="uid://hkifksf23nfo" path="res://Utilidades/inimigo_spawner.tscn" id="3_1oujc"]
 [ext_resource type="Script" uid="uid://be4nsgongmgi2" path="res://Script/info_spawner.gd" id="4_x3chl"]
 [ext_resource type="PackedScene" uid="uid://bpql6dh2xt4ps" path="res://Inimigo/inimigo.tscn" id="5_44mls"]
+[ext_resource type="PackedScene" uid="uid://bgpw1llbccyov" path="res://Objetos/gemaexp.tscn" id="6_s8ap1"]
 
 [sub_resource type="Resource" id="Resource_s8ap1"]
 script = ExtResource("4_x3chl")
@@ -40,3 +41,7 @@ spawns = Array[ExtResource("4_x3chl")]([SubResource("Resource_s8ap1"), SubResour
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 position = Vector2(70, 26)
+
+[node name="GemaEXP" parent="Loot" instance=ExtResource("6_s8ap1")]
+position = Vector2(34, -69)
+experiencia = 50

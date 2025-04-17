@@ -19,11 +19,29 @@ func _ready():
 	
 	match nivel:
 		1:
-			hp = 2
+			hp = 1
 			velocidade = 100
 			damage = 5
 			forca_empurrao = 100
-			tamanho_ataque = 1.0
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+		2:
+			hp = 1
+			velocidade = 100
+			damage = 5
+			forca_empurrao = 100
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+		3:
+			hp = 2
+			velocidade = 100
+			damage = 8
+			forca_empurrao = 100
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+		4:
+			hp = 2
+			velocidade = 100
+			damage = 8
+			forca_empurrao = 100
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
 	
 	
 	var tween = create_tween()

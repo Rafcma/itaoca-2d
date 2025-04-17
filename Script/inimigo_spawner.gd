@@ -6,8 +6,6 @@ extends Node2D
 
 var tempo = 0
 
-
-
 func _on_timer_timeout() -> void:
 	tempo += 1
 	var inimigo_spawn = spawns
@@ -24,7 +22,7 @@ func _on_timer_timeout() -> void:
 					spawn_inimigo.global_position = get_random_position()
 					add_child(spawn_inimigo)
 					contador +=1
-					
+
 func get_random_position():
 	var vpr = get_viewport_rect().size * randf_range(1.1,1.4)
 	var esquerda_superior = Vector2(player.global_position.x - vpr.x/2, player.global_position.y - vpr.y/2)

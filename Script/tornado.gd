@@ -23,8 +23,26 @@ func _ready():
 			hp = 999
 			velocidade = 100.0
 			damage = 5
-			tamanho_ataque = 1.0
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
 			forca_empurrao = 100
+		2:
+			hp = 999
+			velocidade = 100.0
+			damage = 5
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+			forca_empurrao = 100
+		3:
+			hp = 999
+			velocidade = 100.0
+			damage = 5
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+			forca_empurrao = 100
+		4:
+			hp = 999
+			velocidade = 100.0
+			damage = 5
+			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
+			forca_empurrao = 125
 	
 	var move_menos = Vector2.ZERO
 	var move_mais = Vector2.ZERO
@@ -72,9 +90,6 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	position += angulo * velocidade * delta
-	
-
-
 
 func _on_timer_timeout() -> void:
 	emit_signal("remove_do_array")
