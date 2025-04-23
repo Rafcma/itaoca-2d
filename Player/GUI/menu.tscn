@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddu3nlrjf7cev"]
+
+[ext_resource type="FontFile" uid="uid://cj2y5kom35y55" path="res://Font/tenderness.otf" id="1_1r4sg"]
+[ext_resource type="Script" uid="uid://1xfv7tpvgk5y" path="res://Script/menu.gd" id="1_vxflh"]
+[ext_resource type="PackedScene" uid="uid://vx0147okbxkq" path="res://Utilidades/base_button.tscn" id="3_j5hsc"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vxflh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 672.0
+offset_bottom = 384.0
+color = Color(0.239216, 0, 0.239216, 0.537255)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("1_1r4sg")
+theme_override_font_sizes/font_size = 72
+text = "Itaoca - Survival"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 86.0
+offset_right = 480.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("1_1r4sg")
+theme_override_font_sizes/font_size = 40
+text = "Para se mover use:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_jogar" parent="." instance=ExtResource("3_j5hsc")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 250.0
+offset_right = 360.0
+offset_bottom = 280.0
+text = "JOGAR"
+
+[node name="btn_sair" parent="." instance=ExtResource("3_j5hsc")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 290.0
+offset_right = 360.0
+offset_bottom = 320.0
+text = "SAIR"
+
+[node name="Button" parent="." instance=ExtResource("3_j5hsc")]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 0
+offset_left = 295.0
+offset_top = 176.0
+offset_right = 345.0
+offset_bottom = 206.0
+text = "S"
+
+[node name="Button2" parent="." instance=ExtResource("3_j5hsc")]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 0
+offset_left = 294.0
+offset_top = 137.0
+offset_right = 344.0
+offset_bottom = 167.0
+text = "W"
+
+[node name="Button3" parent="." instance=ExtResource("3_j5hsc")]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 0
+offset_left = 356.0
+offset_top = 176.0
+offset_right = 406.0
+offset_bottom = 206.0
+text = "D"
+
+[node name="Button4" parent="." instance=ExtResource("3_j5hsc")]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 0
+offset_left = 233.0
+offset_top = 175.0
+offset_right = 283.0
+offset_bottom = 205.0
+text = "A"
+
+[connection signal="click_end" from="btn_jogar" to="." method="_on_btn_jogar_click_end"]
+[connection signal="click_end" from="btn_sair" to="." method="_on_btn_sair_click_end"]

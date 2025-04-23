@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-var hp = 80
-var hp_max = 80
+var hp = 72
+var hp_max = 72
 var velocidade_movimento = 40.0
 var ultimo_mov = Vector2.UP
+var tempo = 0
 
 var experiencia = 0
 var exp_nivel = 1
@@ -56,15 +57,27 @@ var inimigo_perto = []
 @onready var upgrade_opcoes = get_node("%UpgradeOpcoes")
 @onready var item_opcoes = preload("res://Utilidades/item_opcoes.tscn")
 @onready var som_sobe_nivel = get_node("%som_sobe_nivel")
-
+@onready var barra_vida = get_node("%BarraVida")
 @onready var sprite = $Sprite2D
 @onready var timer_andar: Timer = $TimerAndar
+@onready var timer_jogo = get_node("%lbl_timer")
+@onready var armas_coletadas = get_node("%ArmasColetadas")
+@onready var upgrades_coletados = get_node("%UpgradesColetados")
+@onready var item_container = preload("res://Player/GUI/item_container.tscn")
 
+@onready var tela_morte = get_node("%TelaMorte")
+@onready var lbl_resultado = get_node("%lbl_resultado")
+@onready var som_vitoria = get_node("%som_vitoria")
+@onready var som_derrota = get_node("%som_derrota")
+
+#Sinal
+signal playermorre
 
 func _ready() -> void:
 	upgrade_personagem("lancadegelo1")
 	ataque()
 	ajustar_barra(experiencia, calcula_experiencia_max())
+	_on_hurt_box_hurt(0,0,0)
 
 func _process(_delta):
 	movimento()
@@ -104,7 +117,10 @@ func ataque():
 
 func _on_hurt_box_hurt(damage, _angulo, _empurrao):
 	hp -= clamp(damage-armadura,1.0,999.0)
-	print(hp)
+	barra_vida.max_value = hp_max
+	barra_vida.value = hp
+	if hp <= 0:
+		morte()
 
 func _on_tempo_lg_timeout() -> void:
 	lancagelo_municao += lancagelo_municao_base + ataques_adicionais
@@ -153,6 +169,7 @@ func spawn_javelin():
 	for i in get_javelin:
 		if i.has_method("update_javelin"):
 			i.update_javelin()
+
 func alvo_aleatorio():
 	if inimigo_perto.size() > 0:
 		return inimigo_perto.pick_random().global_position
@@ -271,7 +288,7 @@ func upgrade_personagem(upgrade):
 		"comida":
 			hp += 20
 			hp = clamp(hp,0,hp_max)
-	
+	ajusta_gui_coletados(upgrade)
 	ataque()
 	var opcao_children = upgrade_opcoes.get_children()
 	for i in opcao_children:
@@ -307,3 +324,47 @@ func item_aleatorio():
 		return itemaleatorio
 	else:
 		return null
+
+func muda_timer_jogo(argtime = 0):
+	tempo = argtime
+	var get_minutos = int(tempo/60.0)
+	var get_segundos = tempo % 60
+	if get_minutos < 10:
+		get_minutos = str(0,get_minutos)
+	if get_segundos < 10:
+		get_segundos = str(0,get_segundos)
+	timer_jogo.text = str(get_minutos,":",get_segundos)
+
+func ajusta_gui_coletados(upgrade):
+	var get_upgraded_mostrarnomes = UpgradeDb.UPGRADES[upgrade]["mostrarnome"]
+	var pegar_tipo = UpgradeDb.UPGRADES[upgrade]["tipo"]
+	if pegar_tipo != "item":
+		var get_nomes_coletados = []
+		for i in upgrades_ativos:
+			get_nomes_coletados.append(UpgradeDb.UPGRADES[i]["mostrarnome"])
+		if not get_upgraded_mostrarnomes in get_nomes_coletados:
+			var novo_item = item_container.instantiate()
+			novo_item.upgrade = upgrade
+			match pegar_tipo:
+				"arma":
+					armas_coletadas.add_child(novo_item)
+				"upgrade":
+					upgrades_coletados.add_child(novo_item)
+
+func morte():
+	tela_morte.visible = true
+	emit_signal("playermorre")
+	get_tree().paused = true
+	var tween = tela_morte.create_tween()
+	tween.tween_property(tela_morte, "position",Vector2(220,50),3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
+	if tempo >= 300:
+		lbl_resultado.text = "Você Venceu !"
+		som_vitoria.play()
+	else:
+		lbl_resultado.text = "Você PERDEU ! HAHAHA"
+		som_derrota.play()
+
+func _on_btn_menu_click_end() -> void:
+	get_tree().paused = false
+	var _level = get_tree().change_scene_to_file("res://Player/GUI/menu.tscn")

@@ -14,10 +14,10 @@ config/name="Itaoca 2D"
 config/description="Jogo 2D inspirado em Vampire Survivors, desenvolvido por 1 dev indie.
 Aprimore seus ataques e destrua as ordas de inimigos.
 "
-run/main_scene="uid://cnx17n0s1knse"
+run/main_scene="uid://ddu3nlrjf7cev"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
-config/git_sha="7664b4d00ce97bb4194d52f747e1e09ac91dcd43"
+config/git_sha="daf73f711d37cca62b7feda532039a28fd6dd25a"
 
 [autoload]
 

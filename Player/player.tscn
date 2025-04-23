@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hubc401sbbn7"]
+[gd_scene load_steps=19 format=3 uid="uid://hubc401sbbn7"]
 
 [ext_resource type="Script" uid="uid://brffhii8x4ns7" path="res://Script/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bjoywugxwyoch" path="res://Textures/Player/player_sprite.png" id="1_l8h54"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://d1blk6aiwo1cb" path="res://Textures/GUI/exp_progress.png" id="5_vtle1"]
 [ext_resource type="FontFile" uid="uid://cj2y5kom35y55" path="res://Font/tenderness.otf" id="6_od3ui"]
 [ext_resource type="AudioStream" uid="uid://df58kqvldsoga" path="res://Font/levelup.ogg" id="7_vtle1"]
+[ext_resource type="Texture2D" uid="uid://iobgdomcwelh" path="res://Textures/GUI/healthbar.png" id="8_00tjw"]
+[ext_resource type="Texture2D" uid="uid://cmbeey4ppaqx8" path="res://Textures/GUI/health.png" id="9_x3vf3"]
+[ext_resource type="AudioStream" uid="uid://b22yk3vbx5bmv" path="res://Audio/SoundEffect/Victory.wav" id="10_apopc"]
+[ext_resource type="AudioStream" uid="uid://cpw2uuga1euvn" path="res://Audio/SoundEffect/Lose.ogg" id="11_5htga"]
+[ext_resource type="PackedScene" uid="uid://vx0147okbxkq" path="res://Utilidades/base_button.tscn" id="12_5htga"]
+[ext_resource type="Texture2D" uid="uid://buhuw1g857ngo" path="res://Textures/GUI/gigaji.png" id="13_p5o4e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
 radius = 4.0
@@ -107,6 +113,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+value = 50.0
 texture_under = ExtResource("4_fhl08")
 texture_progress = ExtResource("5_vtle1")
 
@@ -121,6 +128,18 @@ theme_override_font_sizes/font_size = 16
 text = "--Nível: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BarraVida" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = 304.0
+offset_top = 200.0
+offset_right = 336.0
+offset_bottom = 208.0
+value = 50.0
+texture_over = ExtResource("8_00tjw")
+texture_progress = ExtResource("9_x3vf3")
 
 [node name="SobeNivel" type="Panel" parent="GUILayer/GUI"]
 unique_name_in_owner = true
@@ -155,6 +174,87 @@ stream = ExtResource("7_vtle1")
 volume_db = -15.0
 pitch_scale = 1.1
 
+[node name="TelaMorte" type="Panel" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 222.0
+offset_top = -279.0
+offset_right = 422.0
+offset_bottom = -29.0
+
+[node name="lbl_resultado" type="Label" parent="GUILayer/GUI/TelaMorte"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_od3ui")
+text = "Resultado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="som_vitoria" type="AudioStreamPlayer" parent="GUILayer/GUI/TelaMorte"]
+unique_name_in_owner = true
+stream = ExtResource("10_apopc")
+volume_db = -15.0
+pitch_scale = 1.1
+
+[node name="som_derrota" type="AudioStreamPlayer" parent="GUILayer/GUI/TelaMorte"]
+unique_name_in_owner = true
+stream = ExtResource("11_5htga")
+volume_db = -15.0
+pitch_scale = 0.9
+
+[node name="btn_menu" parent="GUILayer/GUI/TelaMorte" instance=ExtResource("12_5htga")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 200.0
+offset_right = 140.0
+offset_bottom = 230.0
+text = "Menu"
+
+[node name="TextureRect" type="TextureRect" parent="GUILayer/GUI/TelaMorte"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 62.0
+offset_right = 234.0
+offset_bottom = 362.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 16
+texture = ExtResource("13_p5o4e")
+
+[node name="lbl_timer" type="Label" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 280.0
+offset_top = 20.0
+offset_right = 360.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("6_od3ui")
+theme_override_font_sizes/font_size = 20
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArmasColetadas" type="GridContainer" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 208.0
+offset_bottom = 40.0
+columns = 10
+
+[node name="UpgradesColetados" type="GridContainer" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 208.0
+offset_bottom = 56.0
+columns = 10
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Ataque/TempoLG" to="." method="_on_tempo_lg_timeout"]
 [connection signal="timeout" from="Ataque/TempoLG/TempoAtqLG" to="." method="_on_tempo_atq_lg_timeout"]
@@ -164,5 +264,6 @@ pitch_scale = 1.1
 [connection signal="body_exited" from="AreaDetectaInimigo" to="." method="_on_area_detecta_inimigo_body_exited"]
 [connection signal="area_entered" from="PuxaExp" to="." method="_on_puxa_exp_area_entered"]
 [connection signal="area_entered" from="ColetaExp" to="." method="_on_coleta_exp_area_entered"]
+[connection signal="click_end" from="GUILayer/GUI/TelaMorte/btn_menu" to="." method="_on_btn_menu_click_end"]
 
 [editable path="HurtBox"]

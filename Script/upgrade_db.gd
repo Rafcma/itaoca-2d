@@ -105,7 +105,7 @@ const UPGRADES = {
 		"detalhes": "Reduz o Dano em 1 ponto.",
 		"nivel": "Nível: 1",
 		"prerequisito": [],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"armadura2": {
 		"icone": ICONE_PATH + "helmet_1.png",
@@ -113,7 +113,7 @@ const UPGRADES = {
 		"detalhes": "Reduz o Dano em mais 1 ponto.",
 		"nivel": "Nível: 2",
 		"prerequisito": ["armadura1"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"armadura3": {
 		"icone": ICONE_PATH + "helmet_1.png",
@@ -121,7 +121,7 @@ const UPGRADES = {
 		"detalhes": "Reduz o Dano em mais 1 ponto.",
 		"nivel": "Nível: 3",
 		"prerequisito": ["armadura2"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"armadura4": {
 		"icone": ICONE_PATH + "helmet_1.png",
@@ -129,7 +129,7 @@ const UPGRADES = {
 		"detalhes": "Reduz o Dano em mais 1 ponto.",
 		"nivel": "Nível: 4",
 		"prerequisito": ["armadura3"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"velocidade1": {
 		"icone": ICONE_PATH + "boots_4_green.png",
@@ -137,7 +137,7 @@ const UPGRADES = {
 		"detalhes": "Velocidade de Movimento aumentada em 50% da velocidade base.",
 		"nivel": "Nível: 1",
 		"prerequisito": [],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"velocidade2": {
 		"icone": ICONE_PATH + "boots_4_green.png",
@@ -145,7 +145,7 @@ const UPGRADES = {
 		"detalhes": "Velocidade de Movimento aumentada em mais 50% da velocidade base.",
 		"nivel": "Nível: 2",
 		"prerequisito": ["velocidade1"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"velocidade3": {
 		"icone": ICONE_PATH + "boots_4_green.png",
@@ -153,7 +153,7 @@ const UPGRADES = {
 		"detalhes": "Velocidade de Movimento aumentada em mais 50% da velocidade base.",
 		"nivel": "Nível: 3",
 		"prerequisito": ["velocidade2"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"velocidade4": {
 		"icone": ICONE_PATH + "boots_4_green.png",
@@ -161,7 +161,7 @@ const UPGRADES = {
 		"detalhes": "Velocidade de Movimento aumentada em mais 50% da velocidade base.",
 		"nivel": "Nível: 4",
 		"prerequisito": ["velocidade3"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"tomo1": {
 		"icone": ICONE_PATH + "thick_new.png",
@@ -169,7 +169,7 @@ const UPGRADES = {
 		"detalhes": "Aumenta o tamanho dos feitiços em mais 10% do seu tamanho base.",
 		"nivel": "Nível: 1",
 		"prerequisito": [],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"tomo2": {
 		"icone": ICONE_PATH + "thick_new.png",
@@ -177,7 +177,7 @@ const UPGRADES = {
 		"detalhes": "Aumenta o tamanho dos feitiços em mais 10% do seu tamanho base.",
 		"nivel": "Nível: 2",
 		"prerequisito": ["tomo1"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"tomo3": {
 		"icone": ICONE_PATH + "thick_new.png",
@@ -185,7 +185,7 @@ const UPGRADES = {
 		"detalhes": "Aumenta o tamanho dos feitiços em mais 10% do seu tamanho base.",
 		"nivel": "Nível: 3",
 		"prerequisito": ["tomo2"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"tomo4": {
 		"icone": ICONE_PATH + "thick_new.png",
@@ -193,7 +193,7 @@ const UPGRADES = {
 		"detalhes": "Aumenta o tamanho dos feitiços em mais 10% do seu tamanho base.",
 		"nivel": "Nível: 4",
 		"prerequisito": ["tomo3"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"pergaminho1": {
 		"icone": ICONE_PATH + "scroll_old.png",
@@ -201,7 +201,7 @@ const UPGRADES = {
 		"detalhes": "Diminui o tempo de recarga dos feitiços em mais 5% do seu tempo base.",
 		"nivel": "Nível: 1",
 		"prerequisito": [],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"pergaminho2": {
 		"icone": ICONE_PATH + "scroll_old.png",
@@ -209,7 +209,7 @@ const UPGRADES = {
 		"detalhes": "Diminui o tempo de recarga dos feitiços em mais 5% do seu tempo base.",
 		"nivel": "Nível: 2",
 		"prerequisito": ["pergaminho1"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"pergaminho3": {
 		"icone": ICONE_PATH + "scroll_old.png",
@@ -217,7 +217,7 @@ const UPGRADES = {
 		"detalhes": "Diminui o tempo de recarga dos feitiços em mais 5% do seu tempo base.",
 		"nivel": "Nível: 3",
 		"prerequisito": ["pergaminho2"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"pergaminho4": {
 		"icone": ICONE_PATH + "scroll_old.png",
@@ -225,7 +225,7 @@ const UPGRADES = {
 		"detalhes": "Diminui o tempo de recarga dos feitiços em mais 5% do seu tempo base.",
 		"nivel": "Nível: 4",
 		"prerequisito": ["pergaminho3"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"anel1": {
 		"icone": ICONE_PATH + "urand_mage.png",
@@ -233,7 +233,7 @@ const UPGRADES = {
 		"detalhes": "Seus feitiços agora geram mais 1 ataque adicional.",
 		"nivel": "Nível: 1",
 		"prerequisito": [],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"anel2": {
 		"icone": ICONE_PATH + "urand_mage.png",
@@ -241,7 +241,7 @@ const UPGRADES = {
 		"detalhes": "Seus feitiços agora geram um ataque adicional.",
 		"nivel": "Nível: 2",
 		"prerequisito": ["anel1"],
-		"tipo": "melhoria"
+		"tipo": "upgrade"
 	},
 	"comida": {
 		"icone": ICONE_PATH + "chunk.png",

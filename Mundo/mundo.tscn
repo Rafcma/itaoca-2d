@@ -1,27 +1,95 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnx17n0s1knse"]
+[gd_scene load_steps=21 format=3 uid="uid://cnx17n0s1knse"]
 
 [ext_resource type="Texture2D" uid="uid://bnleqpmrjxidm" path="res://Textures/dirt_full_new.png" id="1_rabi5"]
 [ext_resource type="PackedScene" uid="uid://hubc401sbbn7" path="res://Player/player.tscn" id="2_lotnt"]
 [ext_resource type="PackedScene" uid="uid://hkifksf23nfo" path="res://Utilidades/inimigo_spawner.tscn" id="3_1oujc"]
 [ext_resource type="Script" uid="uid://be4nsgongmgi2" path="res://Script/info_spawner.gd" id="4_x3chl"]
-[ext_resource type="PackedScene" uid="uid://bpql6dh2xt4ps" path="res://Inimigo/inimigo.tscn" id="5_44mls"]
-[ext_resource type="PackedScene" uid="uid://bgpw1llbccyov" path="res://Objetos/gemaexp.tscn" id="6_s8ap1"]
+[ext_resource type="PackedScene" uid="uid://bpql6dh2xt4ps" path="res://Inimigo/inimigo_kobald_fraco.tscn" id="5_s8ap1"]
+[ext_resource type="PackedScene" uid="uid://1htra8fixvso" path="res://Inimigo/inimigo_kobald_forte.tscn" id="6_nu0ts"]
+[ext_resource type="PackedScene" uid="uid://ce6yxgw28sjfp" path="res://Inimigo/inimigo_cyclops.tscn" id="7_1rr0v"]
+[ext_resource type="PackedScene" uid="uid://cl3fmi1memwby" path="res://Inimigo/inimigo_juggernaut.tscn" id="8_5len5"]
+[ext_resource type="PackedScene" uid="uid://tdk1agqh80r0" path="res://Inimigo/inimigo_super.tscn" id="9_3xl74"]
+[ext_resource type="AudioStream" uid="uid://ta6p1eu70x14" path="res://Audio/Music/battleThemeA.mp3" id="10_nu0ts"]
+[ext_resource type="Script" uid="uid://dyyeki1pb4aab" path="res://Script/som_musica.gd" id="11_1rr0v"]
 
-[sub_resource type="Resource" id="Resource_s8ap1"]
+[sub_resource type="Resource" id="Resource_ipnm5"]
 script = ExtResource("4_x3chl")
 inicio_tempo = 0
-fim_tempo = 5
-inimigo = ExtResource("5_44mls")
+fim_tempo = 30
+inimigo = ExtResource("5_s8ap1")
 inimigo_num = 1
 inimigo_tempo_spawn = 0
 metadata/_custom_type_script = "uid://be4nsgongmgi2"
 
-[sub_resource type="Resource" id="Resource_44mls"]
+[sub_resource type="Resource" id="Resource_2331j"]
 script = ExtResource("4_x3chl")
-inicio_tempo = 5
-fim_tempo = 60
-inimigo = ExtResource("5_44mls")
-inimigo_num = 10
+inicio_tempo = 30
+fim_tempo = 210
+inimigo = ExtResource("5_s8ap1")
+inimigo_num = 2
+inimigo_tempo_spawn = 0
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[sub_resource type="Resource" id="Resource_u3lmj"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 60
+fim_tempo = 180
+inimigo = ExtResource("6_nu0ts")
+inimigo_num = 1
+inimigo_tempo_spawn = 1
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[sub_resource type="Resource" id="Resource_js5jr"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 180
+fim_tempo = 210
+inimigo = ExtResource("7_1rr0v")
+inimigo_num = 1
+inimigo_tempo_spawn = 2
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[sub_resource type="Resource" id="Resource_a8hev"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 210
+fim_tempo = 240
+inimigo = ExtResource("6_nu0ts")
+inimigo_num = 2
+inimigo_tempo_spawn = 0
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[sub_resource type="Resource" id="Resource_sk5ky"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 240
+fim_tempo = 270
+inimigo = ExtResource("7_1rr0v")
+inimigo_num = 1
+inimigo_tempo_spawn = 0
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[sub_resource type="Resource" id="Resource_re4c4"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 240
+fim_tempo = 241
+inimigo = ExtResource("8_5len5")
+inimigo_num = 1
+inimigo_tempo_spawn = 0
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[sub_resource type="Resource" id="Resource_k21co"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 270
+fim_tempo = 300
+inimigo = ExtResource("6_nu0ts")
+inimigo_num = 4
+inimigo_tempo_spawn = 0
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
+[sub_resource type="Resource" id="Resource_0wt05"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 300
+fim_tempo = 300
+inimigo = ExtResource("9_3xl74")
+inimigo_num = 1
 inimigo_tempo_spawn = 0
 metadata/_custom_type_script = "uid://be4nsgongmgi2"
 
@@ -30,6 +98,8 @@ metadata/_custom_type_script = "uid://be4nsgongmgi2"
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 2
 texture_repeat = 2
+position = Vector2(97.4999, 97.5001)
+scale = Vector2(1.15475, 1.06925)
 texture = ExtResource("1_rabi5")
 region_enabled = true
 region_rect = Rect2(0, 0, 4000, 4000)
@@ -37,11 +107,17 @@ region_rect = Rect2(0, 0, 4000, 4000)
 [node name="Player" parent="." instance=ExtResource("2_lotnt")]
 
 [node name="InimigoSpawner" parent="." instance=ExtResource("3_1oujc")]
-spawns = Array[ExtResource("4_x3chl")]([SubResource("Resource_s8ap1"), SubResource("Resource_44mls")])
+spawns = Array[ExtResource("4_x3chl")]([SubResource("Resource_ipnm5"), SubResource("Resource_2331j"), SubResource("Resource_u3lmj"), SubResource("Resource_js5jr"), SubResource("Resource_a8hev"), SubResource("Resource_sk5ky"), SubResource("Resource_re4c4"), SubResource("Resource_k21co"), SubResource("Resource_0wt05")])
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 position = Vector2(70, 26)
 
-[node name="GemaEXP" parent="Loot" instance=ExtResource("6_s8ap1")]
-position = Vector2(34, -69)
-experiencia = 50
+[node name="som_musica" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("10_nu0ts")
+volume_db = -25.0
+pitch_scale = 0.5
+autoplay = true
+script = ExtResource("11_1rr0v")
+
+[connection signal="playermorre" from="Player" to="som_musica" method="_on_player_playermorre"]
