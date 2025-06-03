@@ -251,36 +251,36 @@ const UPGRADES = {
 		"prerequisito": [],
 		"tipo": "item"
 	},
-	"fireorb1": {
-	"icone": ARMAS_PATH + "fire_orb.png",
-	"mostrarnome": "Orbe de Fogo",
-	"detalhes": "Um orbe de fogo orbita o jogador e causa dano em inimigos próximos.",
-	"nivel": "Nível: 1",
-	"prerequisito": [],
-	"tipo": "arma"
-	},
-	"fireorb2": {
-		"icone": ARMAS_PATH + "fire_orb.png",
-		"mostrarnome": "Orbe de Fogo",
-		"detalhes": "O orbe de fogo gira mais rápido e causa dano adicional.",
-		"nivel": "Nível: 2",
-		"prerequisito": ["fireorb1"],
-		"tipo": "arma"
-	},
-	"fireorb3": {
-		"icone": ARMAS_PATH + "fire_orb.png",
-		"mostrarnome": "Orbe de Fogo",
-		"detalhes": "Adiciona um segundo orbe de fogo ao redor do jogador.",
-		"nivel": "Nível: 3",
-		"prerequisito": ["fireorb2"],
-		"tipo": "arma"
-	},
-	"fireorb4": {
-		"icone": ARMAS_PATH + "fire_orb.png",
-		"mostrarnome": "Orbe de Fogo",
-		"detalhes": "Os orbes de fogo aumentam a área de dano e a velocidade de rotação.",
-		"nivel": "Nível: 4",
-		"prerequisito": ["fireorb3"],
-		"tipo": "arma"
-	}
+	#"fireorb1": {
+		#"icone": ARMAS_PATH + "fire_orb.png",
+		#"mostrarnome": "Orbe de Fogo",
+		#"detalhes": "Um orbe de fogo orbita o jogador e causa dano em inimigos próximos.",
+		#"nivel": "Nível: 1",
+		#"prerequisito": [],
+		#"tipo": "arma"
+	#},
+	#"fireorb2": {
+		#"icone": ARMAS_PATH + "fire_orb.png",
+		#"mostrarnome": "Orbe de Fogo",
+		#"detalhes": "O orbe de fogo gira mais rápido e causa dano adicional.",
+		#"nivel": "Nível: 2",
+		#"prerequisito": ["fireorb1"],
+		#"tipo": "arma"
+	#},
+	#"fireorb3": {
+		#"icone": ARMAS_PATH + "fire_orb.png",
+		#"mostrarnome": "Orbe de Fogo",
+		#"detalhes": "Adiciona um segundo orbe de fogo ao redor do jogador.",
+		#"nivel": "Nível: 3",
+		#"prerequisito": ["fireorb2"],
+		#"tipo": "arma"
+	#},
+	#"fireorb4": {
+		#"icone": ARMAS_PATH + "fire_orb.png",
+		#"mostrarnome": "Orbe de Fogo",
+		#"detalhes": "Os orbes de fogo aumentam a área de dano e a velocidade de rotação.",
+		#"nivel": "Nível: 4",
+		#"prerequisito": ["fireorb3"],
+		#"tipo": "arma"
+	#}
 }

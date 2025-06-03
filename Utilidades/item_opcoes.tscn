@@ -1,8 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgdkiio2cm54"]
+[gd_scene load_steps=7 format=3 uid="uid://bgdkiio2cm54"]
 
 [ext_resource type="Texture2D" uid="uid://byqbwirv8w0f7" path="res://Textures/Items/Weapons/sword.png" id="1_nkas1"]
 [ext_resource type="Script" uid="uid://d0jyl2id7fu2d" path="res://Script/item_opcoes.gd" id="1_sxiyv"]
 [ext_resource type="FontFile" uid="uid://ddkbjphpqio63" path="res://Font/BLKCHCRY.TTF" id="3_sxiyv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sxiyv"]
+font_size = 12
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e8gso"]
+font_size = 10
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxiyv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -18,12 +28,12 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [node name="ItemOpcoes" type="ColorRect"]
-custom_minimum_size = Vector2(180, 50)
+custom_minimum_size = Vector2(180, 62)
 anchors_preset = -1
 anchor_right = 0.281
 anchor_bottom = 0.139
 offset_right = 0.160004
-offset_bottom = 5.96
+offset_bottom = 13.96
 color = Color(0.261716, 0.202357, 0.379658, 1)
 script = ExtResource("1_sxiyv")
 
@@ -50,6 +60,7 @@ offset_right = 79.0
 offset_bottom = 25.0
 theme_override_fonts/font = ExtResource("3_sxiyv")
 text = "Nome"
+label_settings = SubResource("LabelSettings_sxiyv")
 horizontal_alignment = 1
 
 [node name="lbl_descricao" type="Label" parent="."]
@@ -57,10 +68,11 @@ layout_mode = 0
 offset_left = 4.0
 offset_top = 29.0
 offset_right = 166.0
-offset_bottom = 50.0
+offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("3_sxiyv")
 theme_override_font_sizes/font_size = 8
 text = "Descrição do Item"
+label_settings = SubResource("LabelSettings_e8gso")
 autowrap_mode = 3
 
 [node name="lbl_nivel" type="Label" parent="."]
@@ -72,11 +84,12 @@ offset_bottom = 26.0
 theme_override_fonts/font = ExtResource("3_sxiyv")
 theme_override_font_sizes/font_size = 12
 text = "Nível 1:"
+label_settings = SubResource("LabelSettings_e8gso")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 62.0
-offset_bottom = 56.0
+offset_bottom = 64.0
 mouse_filter = 2
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.27451)
 
@@ -84,7 +97,7 @@ color = Color(0.0705882, 0.0705882, 0.0705882, 0.27451)
 layout_mode = 0
 offset_left = 62.0
 offset_right = 125.0
-offset_bottom = 56.0
+offset_bottom = 64.0
 mouse_filter = 2
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.196078)
 
@@ -92,7 +105,7 @@ color = Color(0.0705882, 0.0705882, 0.0705882, 0.196078)
 layout_mode = 0
 offset_left = 125.0
 offset_right = 180.0
-offset_bottom = 56.0
+offset_bottom = 64.0
 mouse_filter = 2
 color = Color(0.0705882, 0.0705882, 0.0705882, 0.117647)
 

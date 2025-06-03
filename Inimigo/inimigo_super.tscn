@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://tdk1agqh80r0"]
+[gd_scene load_steps=14 format=3 uid="uid://tdk1agqh80r0"]
 
 [ext_resource type="Script" uid="uid://372t6wm8xpyu" path="res://Script/inimigo_fraco.gd" id="1_yekei"]
-[ext_resource type="Texture2D" uid="uid://ba5r675je705e" path="res://Textures/Enemy/giant_amoeba_new.png" id="2_yekei"]
+[ext_resource type="Texture2D" uid="uid://dlxkxdapkgd66" path="res://Textures/Enemy/slime-gigante.png" id="2_yekei"]
 [ext_resource type="PackedScene" uid="uid://c68a42dp83gs" path="res://Utilidades/hurt_box.tscn" id="3_741kl"]
 [ext_resource type="PackedScene" uid="uid://b2rjbdjuwyrh1" path="res://Utilidades/hit_box.tscn" id="4_wdnl5"]
 [ext_resource type="AudioStream" uid="uid://wimnlyct4ieh" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_w0p0k"]
+[ext_resource type="Texture2D" uid="uid://c3gey30np5bea" path="res://Textures/Player/128x128 textures (64).png" id="6_741kl"]
+[ext_resource type="Script" uid="uid://dbxr2y8t4r71p" path="res://Player/point_light_2d.gd" id="7_wdnl5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qnf6x"]
 radius = 5.0
@@ -68,6 +70,7 @@ dano_inimigo = 20
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
 texture = ExtResource("2_yekei")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qnf6x")
@@ -99,6 +102,13 @@ shape = SubResource("RectangleShape2D_8q8qy")
 [node name="SomHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_w0p0k")
 volume_db = -15.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 1, 0.607843)
+energy = 0.5
+texture = ExtResource("6_741kl")
+texture_scale = 1.5
+script = ExtResource("7_wdnl5")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 

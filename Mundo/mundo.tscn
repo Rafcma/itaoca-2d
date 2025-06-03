@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cnx17n0s1knse"]
+[gd_scene load_steps=26 format=3 uid="uid://cnx17n0s1knse"]
 
 [ext_resource type="Texture2D" uid="uid://bmy621ht2cxke" path="res://Textures/dirt-v2.png" id="1_1rr0v"]
 [ext_resource type="PackedScene" uid="uid://hubc401sbbn7" path="res://Player/player.tscn" id="2_lotnt"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://tdk1agqh80r0" path="res://Inimigo/inimigo_super.tscn" id="9_3xl74"]
 [ext_resource type="AudioStream" uid="uid://ta6p1eu70x14" path="res://Audio/Music/battleThemeA.mp3" id="10_nu0ts"]
 [ext_resource type="Script" uid="uid://dyyeki1pb4aab" path="res://Script/som_musica.gd" id="11_1rr0v"]
+[ext_resource type="Script" uid="uid://ca078jgc4ad15" path="res://Mundo/ciclo-dia-noite.gd" id="12_5len5"]
+[ext_resource type="Texture2D" uid="uid://dbgtewsv80tsy" path="res://Textures/daynightcycle-gradient-texture.tres" id="13_3xl74"]
+[ext_resource type="Script" uid="uid://chpjl2v2vw8de" path="res://Mundo/dia_noite.gd" id="14_ipnm5"]
+[ext_resource type="PackedScene" uid="uid://g4arpemu5c6e" path="res://Mundo/poste.tscn" id="15_2331j"]
 
 [sub_resource type="Resource" id="Resource_ipnm5"]
 script = ExtResource("4_x3chl")
@@ -59,7 +63,7 @@ metadata/_custom_type_script = "uid://be4nsgongmgi2"
 
 [sub_resource type="Resource" id="Resource_sk5ky"]
 script = ExtResource("4_x3chl")
-inicio_tempo = 240
+inicio_tempo = 220
 fim_tempo = 270
 inimigo = ExtResource("7_1rr0v")
 inimigo_num = 1
@@ -69,7 +73,7 @@ metadata/_custom_type_script = "uid://be4nsgongmgi2"
 [sub_resource type="Resource" id="Resource_re4c4"]
 script = ExtResource("4_x3chl")
 inicio_tempo = 237
-fim_tempo = 241
+fim_tempo = 240
 inimigo = ExtResource("8_5len5")
 inimigo_num = 1
 inimigo_tempo_spawn = 0
@@ -113,6 +117,14 @@ texture = ExtResource("1_1rr0v")
 region_enabled = true
 region_rect = Rect2(0, 0, 5000, 5000)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(1, 1, 1, 0.74902)
+script = ExtResource("12_5len5")
+gradiente = ExtResource("13_3xl74")
+
+[node name="DiaNoite" type="Node2D" parent="." groups=["ciclo_dia"]]
+script = ExtResource("14_ipnm5")
+
 [node name="Player" parent="." instance=ExtResource("2_lotnt")]
 
 [node name="InimigoSpawner" parent="." instance=ExtResource("3_1oujc")]
@@ -129,5 +141,129 @@ pitch_scale = 0.5
 autoplay = true
 parameters/looping = true
 script = ExtResource("11_1rr0v")
+
+[node name="Postes" type="Node" parent="."]
+
+[node name="Sprite2D" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(-80, -32)
+
+[node name="Sprite2D2" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(112, -32)
+
+[node name="Sprite2D3" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(304, -32)
+
+[node name="Sprite2D4" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(-272, -32)
+
+[node name="Sprite2D5" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(-272, 160)
+
+[node name="Sprite2D6" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(-80, 160)
+
+[node name="Sprite2D7" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(112, 160)
+
+[node name="Sprite2D8" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(304, 160)
+
+[node name="Sprite2D9" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(496, 160)
+
+[node name="Sprite2D10" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(496, -32)
+
+[node name="Sprite2D11" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(496, -224)
+
+[node name="Sprite2D12" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(304, -224)
+
+[node name="Sprite2D13" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(112, -224)
+
+[node name="Sprite2D14" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(-80, -224)
+
+[node name="Sprite2D15" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(-272, -224)
+
+[node name="Sprite2D16" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(-272, 352)
+
+[node name="Sprite2D17" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(-80, 352)
+
+[node name="Sprite2D18" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(112, 352)
+
+[node name="Sprite2D19" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(304, 352)
+
+[node name="Sprite2D20" parent="Postes" instance=ExtResource("15_2331j")]
+position = Vector2(496, 352)
+
+[node name="Postes2" type="Node" parent="."]
+
+[node name="Sprite2D" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(880, -32)
+
+[node name="Sprite2D2" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1072, -32)
+
+[node name="Sprite2D3" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1264, -32)
+
+[node name="Sprite2D4" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(688, -32)
+
+[node name="Sprite2D5" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(688, 160)
+
+[node name="Sprite2D6" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(880, 160)
+
+[node name="Sprite2D7" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1072, 160)
+
+[node name="Sprite2D8" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1264, 160)
+
+[node name="Sprite2D9" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1456, 160)
+
+[node name="Sprite2D10" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1456, -32)
+
+[node name="Sprite2D11" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1456, -224)
+
+[node name="Sprite2D12" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1264, -224)
+
+[node name="Sprite2D13" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1072, -224)
+
+[node name="Sprite2D14" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(880, -224)
+
+[node name="Sprite2D15" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(688, -224)
+
+[node name="Sprite2D16" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(688, 352)
+
+[node name="Sprite2D17" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(880, 352)
+
+[node name="Sprite2D18" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1072, 352)
+
+[node name="Sprite2D19" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1264, 352)
+
+[node name="Sprite2D20" parent="Postes2" instance=ExtResource("15_2331j")]
+position = Vector2(1456, 352)
 
 [connection signal="playermorre" from="Player" to="som_musica" method="_on_player_playermorre"]

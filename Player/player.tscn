@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://hubc401sbbn7"]
+[gd_scene load_steps=28 format=3 uid="uid://hubc401sbbn7"]
 
 [ext_resource type="Script" uid="uid://brffhii8x4ns7" path="res://Script/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bjoywugxwyoch" path="res://Textures/Player/player_sprite.png" id="1_l8h54"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://cpw2uuga1euvn" path="res://Audio/SoundEffect/Lose.ogg" id="11_5htga"]
 [ext_resource type="PackedScene" uid="uid://vx0147okbxkq" path="res://Utilidades/base_button.tscn" id="12_5htga"]
 [ext_resource type="Texture2D" uid="uid://buhuw1g857ngo" path="res://Textures/GUI/gigaji.png" id="13_p5o4e"]
+[ext_resource type="Texture2D" uid="uid://bnietf8a2slvd" path="res://Textures/Player/128x128 textures (22).png" id="15_lfmf2"]
+[ext_resource type="Script" uid="uid://dbxr2y8t4r71p" path="res://Player/point_light_2d.gd" id="16_lfmf2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
 radius = 4.0
@@ -84,7 +86,6 @@ motion_mode = 1
 script = ExtResource("1_4ntmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
 texture = ExtResource("1_l8h54")
 hframes = 2
@@ -325,6 +326,13 @@ offset_top = 40.0
 offset_right = 208.0
 offset_bottom = 56.0
 columns = 10
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -3)
+color = Color(1, 1, 1, 0.607843)
+energy = 0.8
+texture = ExtResource("15_lfmf2")
+script = ExtResource("16_lfmf2")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Ataque/TempoLG" to="." method="_on_tempo_lg_timeout"]

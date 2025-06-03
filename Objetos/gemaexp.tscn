@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgpw1llbccyov"]
+[gd_scene load_steps=10 format=3 uid="uid://bgpw1llbccyov"]
 
 [ext_resource type="Script" uid="uid://btto1yriqyhyv" path="res://Script/gemaexp.gd" id="1_mefi4"]
 [ext_resource type="Texture2D" uid="uid://iw5g3qc72ap3" path="res://Textures/Items/Gems/gema-exp-azul.png" id="2_mefi4"]
 [ext_resource type="AudioStream" uid="uid://cnkglu047w0ic" path="res://Audio/SoundEffect/collectgem.mp3" id="3_u03p4"]
+[ext_resource type="Texture2D" uid="uid://bnietf8a2slvd" path="res://Textures/Player/128x128 textures (22).png" id="4_pupq4"]
+[ext_resource type="Script" uid="uid://dbxr2y8t4r71p" path="res://Player/point_light_2d.gd" id="5_pupq4"]
 
 [sub_resource type="Animation" id="Animation_tobyg"]
 length = 0.001
@@ -65,5 +67,13 @@ shape = SubResource("RectangleShape2D_qos3b")
 [node name="som_coleta" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_u03p4")
 volume_db = -10.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.367188, 0.328125)
+color = Color(1, 1, 1, 0.686275)
+energy = 0.6
+texture = ExtResource("4_pupq4")
+texture_scale = 0.7
+script = ExtResource("5_pupq4")
 
 [connection signal="finished" from="som_coleta" to="." method="_on_som_coleta_finished"]

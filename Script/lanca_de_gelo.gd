@@ -14,8 +14,30 @@ var angulo = Vector2.ZERO
 signal remove_do_array(object)
 
 func _ready():
-	angulo = global_position.direction_to(alvo)
-	rotation = angulo.angle() + deg_to_rad(135)
+	if nivel == 1:
+		var menor_distancia = INF
+		var inimigo_mais_proximo = null
+
+		if "inimigo_perto" in player:
+			for inimigo in player.inimigo_perto:
+				if not is_instance_valid(inimigo): 
+					continue
+				var distancia = player.global_position.distance_to(inimigo.global_position)
+				if distancia < menor_distancia:
+					menor_distancia = distancia
+					inimigo_mais_proximo = inimigo
+					
+		if inimigo_mais_proximo:
+			alvo = inimigo_mais_proximo.global_position
+		else:
+			alvo = player.global_position + Vector2.RIGHT * 100
+		angulo = global_position.direction_to(alvo)
+		rotation = angulo.angle() + deg_to_rad(135)
+	else:
+		# define direção
+		angulo = global_position.direction_to(alvo)
+		rotation = angulo.angle() + deg_to_rad(135)
+
 	
 	match nivel:
 		1:
