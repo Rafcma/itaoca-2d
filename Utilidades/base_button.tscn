@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://vx0147okbxkq"]
+[gd_scene load_steps=7 format=3 uid="uid://vx0147okbxkq"]
 
-[ext_resource type="FontFile" uid="uid://cj2y5kom35y55" path="res://Font/tenderness.otf" id="1_gv1gk"]
+[ext_resource type="FontFile" uid="uid://ddkbjphpqio63" path="res://Font/BLKCHCRY.TTF" id="1_mfyfx"]
 [ext_resource type="Script" uid="uid://caro01sr2gxv8" path="res://Script/base_button.gd" id="2_mfyfx"]
+[ext_resource type="StyleBox" uid="uid://cpp8imj8wmed8" path="res://Utilidades/botao.tres" id="2_o3ft4"]
+[ext_resource type="StyleBox" uid="uid://cup8x16t7jmfg" path="res://Player/GUI/botao-normal.tres" id="3_3j3ct"]
 [ext_resource type="AudioStream" uid="uid://001opk0c4ee" path="res://Audio/GUI/hover.wav" id="3_o3ft4"]
 [ext_resource type="AudioStream" uid="uid://btsae7hsfo0b0" path="res://Audio/GUI/click.wav" id="4_3j3ct"]
 
@@ -9,8 +11,10 @@
 custom_minimum_size = Vector2(80, 30)
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_fonts/font = ExtResource("1_gv1gk")
+theme_override_fonts/font = ExtResource("1_mfyfx")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = ExtResource("2_o3ft4")
+theme_override_styles/normal = ExtResource("3_3j3ct")
 text = "Exemplo"
 script = ExtResource("2_mfyfx")
 

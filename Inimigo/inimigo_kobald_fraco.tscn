@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpql6dh2xt4ps"]
+[gd_scene load_steps=13 format=3 uid="uid://bpql6dh2xt4ps"]
 
 [ext_resource type="Script" uid="uid://372t6wm8xpyu" path="res://Script/inimigo_fraco.gd" id="1_7fpko"]
 [ext_resource type="Texture2D" uid="uid://b6facxd2lvw67" path="res://Textures/Enemy/kolbold_weak.png" id="2_w3jin"]
 [ext_resource type="PackedScene" uid="uid://c68a42dp83gs" path="res://Utilidades/hurt_box.tscn" id="3_cc0ov"]
+[ext_resource type="Texture2D" uid="uid://3vb2wtqpkxh" path="res://Textures/shadow.png" id="3_w3jin"]
 [ext_resource type="PackedScene" uid="uid://b2rjbdjuwyrh1" path="res://Utilidades/hit_box.tscn" id="4_1f5l7"]
 [ext_resource type="AudioStream" uid="uid://wimnlyct4ieh" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_kehut"]
 
@@ -61,8 +62,14 @@ motion_mode = 1
 script = ExtResource("1_7fpko")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_w3jin")
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_w3jin")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

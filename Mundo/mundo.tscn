@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnx17n0s1knse"]
+[gd_scene load_steps=22 format=3 uid="uid://cnx17n0s1knse"]
 
-[ext_resource type="Texture2D" uid="uid://bnleqpmrjxidm" path="res://Textures/dirt_full_new.png" id="1_rabi5"]
+[ext_resource type="Texture2D" uid="uid://bmy621ht2cxke" path="res://Textures/dirt-v2.png" id="1_1rr0v"]
 [ext_resource type="PackedScene" uid="uid://hubc401sbbn7" path="res://Player/player.tscn" id="2_lotnt"]
 [ext_resource type="PackedScene" uid="uid://hkifksf23nfo" path="res://Utilidades/inimigo_spawner.tscn" id="3_1oujc"]
 [ext_resource type="Script" uid="uid://be4nsgongmgi2" path="res://Script/info_spawner.gd" id="4_x3chl"]
@@ -68,7 +68,7 @@ metadata/_custom_type_script = "uid://be4nsgongmgi2"
 
 [sub_resource type="Resource" id="Resource_re4c4"]
 script = ExtResource("4_x3chl")
-inicio_tempo = 240
+inicio_tempo = 237
 fim_tempo = 241
 inimigo = ExtResource("8_5len5")
 inimigo_num = 1
@@ -93,21 +93,30 @@ inimigo_num = 1
 inimigo_tempo_spawn = 0
 metadata/_custom_type_script = "uid://be4nsgongmgi2"
 
+[sub_resource type="Resource" id="Resource_1rr0v"]
+script = ExtResource("4_x3chl")
+inicio_tempo = 250
+fim_tempo = 300
+inimigo = ExtResource("6_nu0ts")
+inimigo_num = 2
+inimigo_tempo_spawn = 0
+metadata/_custom_type_script = "uid://be4nsgongmgi2"
+
 [node name="Mundo" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 2
 texture_repeat = 2
 position = Vector2(97.4999, 97.5001)
-scale = Vector2(1.15475, 1.06925)
-texture = ExtResource("1_rabi5")
+scale = Vector2(1.08, 1)
+texture = ExtResource("1_1rr0v")
 region_enabled = true
-region_rect = Rect2(0, 0, 4000, 4000)
+region_rect = Rect2(0, 0, 5000, 5000)
 
 [node name="Player" parent="." instance=ExtResource("2_lotnt")]
 
 [node name="InimigoSpawner" parent="." instance=ExtResource("3_1oujc")]
-spawns = Array[ExtResource("4_x3chl")]([SubResource("Resource_ipnm5"), SubResource("Resource_2331j"), SubResource("Resource_u3lmj"), SubResource("Resource_js5jr"), SubResource("Resource_a8hev"), SubResource("Resource_sk5ky"), SubResource("Resource_re4c4"), SubResource("Resource_k21co"), SubResource("Resource_0wt05")])
+spawns = Array[ExtResource("4_x3chl")]([SubResource("Resource_ipnm5"), SubResource("Resource_2331j"), SubResource("Resource_u3lmj"), SubResource("Resource_js5jr"), SubResource("Resource_a8hev"), SubResource("Resource_sk5ky"), SubResource("Resource_re4c4"), SubResource("Resource_k21co"), SubResource("Resource_0wt05"), SubResource("Resource_1rr0v")])
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 position = Vector2(70, 26)
@@ -118,6 +127,7 @@ stream = ExtResource("10_nu0ts")
 volume_db = -25.0
 pitch_scale = 0.5
 autoplay = true
+parameters/looping = true
 script = ExtResource("11_1rr0v")
 
 [connection signal="playermorre" from="Player" to="som_musica" method="_on_player_playermorre"]

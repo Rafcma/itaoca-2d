@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce6yxgw28sjfp"]
+[gd_scene load_steps=13 format=3 uid="uid://ce6yxgw28sjfp"]
 
 [ext_resource type="Script" uid="uid://372t6wm8xpyu" path="res://Script/inimigo_fraco.gd" id="1_0inqm"]
 [ext_resource type="Texture2D" uid="uid://wusfpyguc5g7" path="res://Textures/Enemy/cyclops.png" id="2_mnv2t"]
 [ext_resource type="PackedScene" uid="uid://c68a42dp83gs" path="res://Utilidades/hurt_box.tscn" id="3_2coa3"]
+[ext_resource type="Texture2D" uid="uid://3vb2wtqpkxh" path="res://Textures/shadow.png" id="3_mnv2t"]
 [ext_resource type="PackedScene" uid="uid://b2rjbdjuwyrh1" path="res://Utilidades/hit_box.tscn" id="4_bb53q"]
 [ext_resource type="AudioStream" uid="uid://wimnlyct4ieh" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_uwhil"]
 
@@ -52,7 +53,7 @@ _data = {
 size = Vector2(26, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q8qy"]
-size = Vector2(16, 24.5)
+size = Vector2(23, 26.5)
 
 [node name="inimigo_cyclops" type="CharacterBody2D"]
 collision_layer = 5
@@ -66,7 +67,12 @@ experiencia = 10
 dano_inimigo = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("2_mnv2t")
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_mnv2t")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -92,7 +98,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 0.25)
+position = Vector2(-0.5, -0.75)
 shape = SubResource("RectangleShape2D_8q8qy")
 
 [node name="SomHit" type="AudioStreamPlayer2D" parent="."]

@@ -4,7 +4,7 @@ var hp = 72
 var hp_max = 72
 var velocidade_movimento = 40.0
 var ultimo_mov = Vector2.UP
-var tempo = 0
+var tempo = 120
 
 var experiencia = 0
 var exp_nivel = 1
@@ -46,6 +46,10 @@ var tornado_nivel = 0
 #Javelin
 var javelin_municao = 0
 var javelin_nivel = 0
+
+#Fire Orb
+var fireorb_nivel = 0
+var fireorb_municao_base = 0
 
 #Relação com Inimigo
 var inimigo_perto = []
@@ -288,6 +292,17 @@ func upgrade_personagem(upgrade):
 		"comida":
 			hp += 20
 			hp = clamp(hp,0,hp_max)
+		"fireorb1":
+			fireorb_nivel = 1
+			fireorb_municao_base += 1
+		"fireorb2":
+			fireorb_nivel = 2
+		"fireorb3":
+			fireorb_nivel = 3
+			fireorb_municao_base += 1
+		"fireorb4":
+			fireorb_nivel = 4
+	
 	ajusta_gui_coletados(upgrade)
 	ataque()
 	var opcao_children = upgrade_opcoes.get_children()

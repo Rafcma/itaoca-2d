@@ -43,7 +43,8 @@ func morte():
 	var nova_expgema = exp_gema.instantiate()
 	nova_expgema.global_position = global_position
 	nova_expgema.experiencia = experiencia
-	loot_base.call_deferred("add_child",nova_expgema)
+	loot_base.call_deferred("add_child", nova_expgema)
+	nova_expgema.call_deferred("set_global_position", global_position)
 	queue_free()
 
 func _on_hurt_box_hurt(damage, angulo, forca_empurrao: Variant) -> void:

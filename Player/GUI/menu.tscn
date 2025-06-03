@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddu3nlrjf7cev"]
+[gd_scene load_steps=6 format=3 uid="uid://ddu3nlrjf7cev"]
 
-[ext_resource type="FontFile" uid="uid://cj2y5kom35y55" path="res://Font/tenderness.otf" id="1_1r4sg"]
 [ext_resource type="Script" uid="uid://1xfv7tpvgk5y" path="res://Script/menu.gd" id="1_vxflh"]
+[ext_resource type="Texture2D" uid="uid://ic1ra6v1qib5" path="res://Textures/GUI/text-menu.png" id="2_j5hsc"]
 [ext_resource type="PackedScene" uid="uid://vx0147okbxkq" path="res://Utilidades/base_button.tscn" id="3_j5hsc"]
+
+[sub_resource type="Gradient" id="Gradient_vxflh"]
+offsets = PackedFloat32Array(0, 0.263314, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0120389, 3.39194e-05, 0.0274138, 1, 0.309632, 0.00101999, 0.5217, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j5hsc"]
+gradient = SubResource("Gradient_vxflh")
+use_hdr = true
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -13,84 +21,78 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vxflh")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(317.182, 180.601)
+rotation = 2.04029
+scale = Vector2(10.3968, 12.3951)
+texture = SubResource("GradientTexture2D_j5hsc")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(322, 122)
+texture = ExtResource("2_j5hsc")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 672.0
 offset_bottom = 384.0
-color = Color(0.239216, 0, 0.239216, 0.537255)
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 100.0
-theme_override_fonts/font = ExtResource("1_1r4sg")
-theme_override_font_sizes/font_size = 72
-text = "Itaoca - Survival"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 86.0
-offset_right = 480.0
-offset_bottom = 136.0
-theme_override_fonts/font = ExtResource("1_1r4sg")
-theme_override_font_sizes/font_size = 40
-text = "Para se mover use:"
-horizontal_alignment = 1
-vertical_alignment = 1
+color = Color(0, 0, 0, 0.203922)
 
 [node name="btn_jogar" parent="." instance=ExtResource("3_j5hsc")]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 250.0
-offset_right = 360.0
-offset_bottom = 280.0
+offset_left = 241.0
+offset_top = 264.0
+offset_right = 395.0
+offset_bottom = 295.0
 text = "JOGAR"
 
 [node name="btn_sair" parent="." instance=ExtResource("3_j5hsc")]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 290.0
-offset_right = 360.0
-offset_bottom = 320.0
+offset_left = 241.0
+offset_top = 313.0
+offset_right = 395.0
+offset_bottom = 349.0
 text = "SAIR"
 
 [node name="Button" parent="." instance=ExtResource("3_j5hsc")]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 0
-offset_left = 295.0
-offset_top = 176.0
-offset_right = 345.0
-offset_bottom = 206.0
+offset_left = 294.0
+offset_top = 212.0
+offset_right = 344.0
+offset_bottom = 248.0
 text = "S"
 
 [node name="Button2" parent="." instance=ExtResource("3_j5hsc")]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 0
 offset_left = 294.0
-offset_top = 137.0
+offset_top = 164.0
 offset_right = 344.0
-offset_bottom = 167.0
+offset_bottom = 200.0
 text = "W"
 
 [node name="Button3" parent="." instance=ExtResource("3_j5hsc")]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 0
-offset_left = 356.0
-offset_top = 176.0
-offset_right = 406.0
-offset_bottom = 206.0
+offset_left = 358.0
+offset_top = 212.0
+offset_right = 408.0
+offset_bottom = 248.0
 text = "D"
 
 [node name="Button4" parent="." instance=ExtResource("3_j5hsc")]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 0
-offset_left = 233.0
-offset_top = 175.0
-offset_right = 283.0
-offset_bottom = 205.0
+offset_left = 231.0
+offset_top = 212.0
+offset_right = 281.0
+offset_bottom = 248.0
 text = "A"
 
 [connection signal="click_end" from="btn_jogar" to="." method="_on_btn_jogar_click_end"]

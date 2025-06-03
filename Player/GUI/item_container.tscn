@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bh13ofnkhhd27" path="res://Script/item_container.gd" id="2_1ykcd"]
 
 [node name="ItemContainer" type="TextureRect"]
-offset_right = 12.0
-offset_bottom = 12.0
+offset_right = 20.0
+offset_bottom = 20.0
 texture = ExtResource("1_tujht")
 script = ExtResource("2_1ykcd")
 

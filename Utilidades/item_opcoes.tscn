@@ -1,17 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgdkiio2cm54"]
+[gd_scene load_steps=5 format=3 uid="uid://bgdkiio2cm54"]
 
 [ext_resource type="Texture2D" uid="uid://byqbwirv8w0f7" path="res://Textures/Items/Weapons/sword.png" id="1_nkas1"]
 [ext_resource type="Script" uid="uid://d0jyl2id7fu2d" path="res://Script/item_opcoes.gd" id="1_sxiyv"]
-[ext_resource type="FontFile" uid="uid://cj2y5kom35y55" path="res://Font/tenderness.otf" id="2_sxiyv"]
+[ext_resource type="FontFile" uid="uid://ddkbjphpqio63" path="res://Font/BLKCHCRY.TTF" id="3_sxiyv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxiyv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.870588, 0.745098, 0.419608, 0.858824)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
 [node name="ItemOpcoes" type="ColorRect"]
 custom_minimum_size = Vector2(180, 50)
 anchors_preset = -1
 anchor_right = 0.281
 anchor_bottom = 0.139
-offset_right = 0.159988
-offset_bottom = -0.0400047
-color = Color(0.633757, 0.633757, 0.633757, 1)
+offset_right = 0.160004
+offset_bottom = 5.96
+color = Color(0.261716, 0.202357, 0.379658, 1)
 script = ExtResource("1_sxiyv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -20,7 +33,7 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 26.0
 offset_bottom = 26.0
-color = Color(0, 0, 0, 1)
+color = Color(0.134576, 0.146183, 0.18672, 1)
 
 [node name="IconeItem" type="TextureRect" parent="ColorRect"]
 layout_mode = 0
@@ -35,17 +48,17 @@ offset_left = 39.0
 offset_top = 2.0
 offset_right = 79.0
 offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("2_sxiyv")
+theme_override_fonts/font = ExtResource("3_sxiyv")
 text = "Nome"
 horizontal_alignment = 1
 
 [node name="lbl_descricao" type="Label" parent="."]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 27.0
+offset_top = 29.0
 offset_right = 166.0
-offset_bottom = 48.0
-theme_override_fonts/font = ExtResource("2_sxiyv")
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("3_sxiyv")
 theme_override_font_sizes/font_size = 8
 text = "Descrição do Item"
 autowrap_mode = 3
@@ -56,9 +69,40 @@ offset_left = 130.0
 offset_top = 3.0
 offset_right = 173.0
 offset_bottom = 26.0
-theme_override_fonts/font = ExtResource("2_sxiyv")
+theme_override_fonts/font = ExtResource("3_sxiyv")
 theme_override_font_sizes/font_size = 12
 text = "Nível 1:"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 62.0
+offset_bottom = 56.0
+mouse_filter = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 0.27451)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_right = 125.0
+offset_bottom = 56.0
+mouse_filter = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 0.196078)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_right = 180.0
+offset_bottom = 56.0
+mouse_filter = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 0.117647)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 27.0
+offset_bottom = 27.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sxiyv")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
