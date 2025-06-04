@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://g4arpemu5c6e"]
+[gd_scene load_steps=5 format=3 uid="uid://g4arpemu5c6e"]
 
 [ext_resource type="Texture2D" uid="uid://dvr6jsad4grln" path="res://Textures/Mundo/poste-v1.png" id="1_h8mon"]
 [ext_resource type="Texture2D" uid="uid://bnietf8a2slvd" path="res://Textures/Player/128x128 textures (22).png" id="2_d6h51"]
 [ext_resource type="Script" uid="uid://dbxr2y8t4r71p" path="res://Player/point_light_2d.gd" id="3_8w5fq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8mon"]
+size = Vector2(6, 11)
+
 [node name="Sprite2D" type="Sprite2D"]
+light_mask = 9
+visibility_layer = 9
+y_sort_enabled = true
 texture = ExtResource("1_h8mon")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -13,5 +19,11 @@ scale = Vector2(0.367188, 0.328125)
 color = Color(1, 1, 1, 0.686275)
 energy = 0.9
 texture = ExtResource("2_d6h51")
-texture_scale = 2.0
+texture_scale = 2.5
 script = ExtResource("3_8w5fq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_h8mon")
