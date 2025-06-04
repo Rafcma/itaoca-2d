@@ -1,11 +1,11 @@
 extends Area2D
 
 var nivel = 1
-var hp = 999
+var hp = 99
 var velocidade = 100.0
 var damage = 5
 var tamanho_ataque = 1.0
-var forca_empurrao = 100
+var forca_empurrao = 50
 
 
 var ultimo_mov = Vector2.ZERO
@@ -24,29 +24,29 @@ func _ready():
 	
 	match nivel:
 		1:
-			hp = 999
+			hp = 99
 			velocidade = 100.0
 			damage = 5
 			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
-			forca_empurrao = 100
+			forca_empurrao = 50
 		2:
-			hp = 999
+			hp = 99
 			velocidade = 100.0
 			damage = 5
 			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
-			forca_empurrao = 100
+			forca_empurrao = 50
 		3:
-			hp = 999
+			hp = 99
 			velocidade = 100.0
 			damage = 5
 			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
-			forca_empurrao = 100
+			forca_empurrao = 50
 		4:
 			hp = 999
 			velocidade = 100.0
 			damage = 5
 			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
-			forca_empurrao = 125
+			forca_empurrao = 75
 	
 	var move_menos = Vector2.ZERO
 	var move_mais = Vector2.ZERO

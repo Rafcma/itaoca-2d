@@ -4,7 +4,7 @@ var nivel = 1
 var hp = 999
 var velocidade = 200.0
 var damage = 10
-var forca_empurrao = 100
+var forca_empurrao = 50
 var caminhos = 1
 var tamanho_ataque = 1.0
 var velocidade_ataque = 4.0
@@ -39,7 +39,7 @@ func update_javelin():
 			hp = 999
 			velocidade = 200.0
 			damage = 10
-			forca_empurrao = 100
+			forca_empurrao = 50
 			caminhos = 1
 			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
 			velocidade_ataque = 4.0 * (1 - player.tempo_magia)
@@ -47,7 +47,7 @@ func update_javelin():
 			hp = 999
 			velocidade = 200.0
 			damage = 10
-			forca_empurrao = 100
+			forca_empurrao = 50
 			caminhos = 2
 			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
 			velocidade_ataque = 4.0 * (1 - player.tempo_magia)
@@ -55,7 +55,7 @@ func update_javelin():
 			hp = 999
 			velocidade = 200.0
 			damage = 10
-			forca_empurrao = 100
+			forca_empurrao = 50
 			caminhos = 3
 			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
 			velocidade_ataque = 4.0 * (1 - player.tempo_magia)
@@ -63,7 +63,7 @@ func update_javelin():
 			hp = 999
 			velocidade = 200.0
 			damage = 15
-			forca_empurrao = 120
+			forca_empurrao = 70
 			caminhos = 3
 			tamanho_ataque = 1.0 * (1 + player.tamanho_magia)
 			velocidade_ataque = 4.0 * (1 - player.tempo_magia)

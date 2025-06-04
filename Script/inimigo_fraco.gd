@@ -23,6 +23,11 @@ func _ready():
 	animation_player.play("andar")
 	hit_box.damage = dano_inimigo
 
+func _process(_delta):
+	if has_node("Sprite2D"):
+		var sprite = get_node("Sprite2D")
+		sprite.z_index = int(global_position.y) + 1000
+
 func _physics_process(_delta):
 	empurrao = empurrao.move_toward(Vector2.ZERO, recuperar_empurrao)
 	var direcao = global_position.direction_to(player.global_position)

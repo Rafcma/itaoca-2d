@@ -15,3 +15,8 @@ func _atualizar_luz(fase: float) -> void:
 	var intensidade = clamp(1.0 - abs(fase - 0.5) * 2.0, 0.0, 1.0)
 	self.energy = intensidade * intensidade_maxima
 	self.visible = self.energy > 0.1
+
+	self.z_as_relative = true
+	if owner and owner.has_node("Sprite2D"):
+		var sprite = owner.get_node("Sprite2D")
+		self.z_index = sprite.z_index + 1

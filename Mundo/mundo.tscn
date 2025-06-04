@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cnx17n0s1knse"]
+[gd_scene load_steps=32 format=4 uid="uid://cnx17n0s1knse"]
 
 [ext_resource type="Texture2D" uid="uid://b1k05h25ky8ir" path="res://Textures/Mundo/dirt-v2.png" id="1_1rr0v"]
 [ext_resource type="Script" uid="uid://qt67d5nabeyf" path="res://Mundo/mundo.gd" id="1_a8hev"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://ca078jgc4ad15" path="res://Mundo/ciclo-dia-noite.gd" id="12_5len5"]
 [ext_resource type="Texture2D" uid="uid://dbgtewsv80tsy" path="res://Textures/daynightcycle-gradient-texture.tres" id="13_3xl74"]
 [ext_resource type="Script" uid="uid://chpjl2v2vw8de" path="res://Mundo/dia_noite.gd" id="14_ipnm5"]
-[ext_resource type="PackedScene" uid="uid://g4arpemu5c6e" path="res://Mundo/poste.tscn" id="15_2331j"]
 [ext_resource type="Texture2D" uid="uid://ggmkrope3xd1" path="res://Textures/Mundo/ground-tile.png" id="16_u3lmj"]
 [ext_resource type="Texture2D" uid="uid://dd53ftumur6a0" path="res://Textures/Mundo/path-tile.png" id="17_js5jr"]
 [ext_resource type="PackedScene" uid="uid://dril74a5vbvpo" path="res://Mundo/poste-luz.tscn" id="19_sk5ky"]
@@ -152,7 +151,6 @@ metadata/_custom_type_script = "uid://be4nsgongmgi2"
 
 [node name="Mundo" type="Node2D"]
 script = ExtResource("1_a8hev")
-cena_poste = ExtResource("15_2331j")
 
 [node name="CaminhosGround" type="TileMapLayer" parent="."]
 top_level = true

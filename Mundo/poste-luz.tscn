@@ -8,7 +8,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph150"]
 radius = 4.0
-height = 12.0
+height = 16.0
 
 [node name="Poste" type="Node2D"]
 
@@ -29,5 +29,5 @@ position = Vector2(0, 14)
 physics_material_override = SubResource("PhysicsMaterial_2cj2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(0, 2)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_ph150")

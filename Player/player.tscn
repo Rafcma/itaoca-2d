@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://dbxr2y8t4r71p" path="res://Player/point_light_2d.gd" id="16_lfmf2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
-radius = 4.0
+radius = 5.0
 height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
@@ -97,7 +97,8 @@ hframes = 2
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 3)
+z_index = 1
+position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_4ntmi")
 
 [node name="TimerAndar" type="Timer" parent="."]
@@ -105,12 +106,12 @@ wait_time = 0.2
 one_shot = true
 
 [node name="HurtBox" parent="." instance=ExtResource("3_btcbx")]
-position = Vector2(-1, 0)
+z_index = 1
+position = Vector2(0, 4)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(3, 2.5)
 shape = SubResource("RectangleShape2D_gwnis")
 
 [node name="Ataque" type="Node" parent="."]
@@ -330,8 +331,9 @@ columns = 10
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -3)
 color = Color(1, 1, 1, 0.607843)
-energy = 0.8
+energy = 0.9
 texture = ExtResource("15_lfmf2")
+texture_scale = 1.1
 script = ExtResource("16_lfmf2")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]

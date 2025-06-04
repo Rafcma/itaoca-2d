@@ -1,15 +1,13 @@
 extends Node2D
 
-@export var cena_poste: PackedScene  # Aponte para poste.tscn no inspetor
-
 @onready var player: CharacterBody2D = $Player
-var poste_instanciado: Node2D
-var poste_sprite: Sprite2D
+@onready var grupo_postes: Node = $Postes
 
-func _ready():
-	# Instancia o poste da cena poste.tscn
-	poste_instanciado = cena_poste.instantiate()
-	poste_instanciado.global_position = Vector2(400, 400)  # ajuste a posição conforme o necessário
-	add_child(poste_instanciado)
+func _process(_delta):
+	# +1000 evita que o player fique atrás do chão
+	player.z_index = int(player.global_position.y) + 1000
 
-	poste_sprite = poste_instanciado.get_node("Sprite2D")
+	for poste in grupo_postes.get_children():
+		if poste.has_node("Sprite2D"):
+			var sprite = poste.get_node("Sprite2D")
+			sprite.z_index = int(poste.global_position.y) + 1000
