@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnleqpmrjxidm"
-path="res://.godot/imported/dirt_full_new.png-d85788bb1f068f5a851e8191cbb530c8.ctex"
+uid="uid://dl1h2hgnbtps7"
+path="res://.godot/imported/tornado-v2.png-ef66c49d10ac1b33bc2adc61062a7be4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/dirt_full_new.png"
-dest_files=["res://.godot/imported/dirt_full_new.png-d85788bb1f068f5a851e8191cbb530c8.ctex"]
+source_file="res://Textures/Items/Weapons/tornado-v2.png"
+dest_files=["res://.godot/imported/tornado-v2.png-ef66c49d10ac1b33bc2adc61062a7be4.ctex"]
 
 [params]
 

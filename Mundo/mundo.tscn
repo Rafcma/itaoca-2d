@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=4 uid="uid://cnx17n0s1knse"]
+[gd_scene load_steps=33 format=4 uid="uid://cnx17n0s1knse"]
 
-[ext_resource type="Texture2D" uid="uid://bmy621ht2cxke" path="res://Textures/dirt-v2.png" id="1_1rr0v"]
+[ext_resource type="Texture2D" uid="uid://b1k05h25ky8ir" path="res://Textures/Mundo/dirt-v2.png" id="1_1rr0v"]
+[ext_resource type="Script" uid="uid://qt67d5nabeyf" path="res://Mundo/mundo.gd" id="1_a8hev"]
 [ext_resource type="PackedScene" uid="uid://hubc401sbbn7" path="res://Player/player.tscn" id="2_lotnt"]
 [ext_resource type="PackedScene" uid="uid://hkifksf23nfo" path="res://Utilidades/inimigo_spawner.tscn" id="3_1oujc"]
 [ext_resource type="Script" uid="uid://be4nsgongmgi2" path="res://Script/info_spawner.gd" id="4_x3chl"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://g4arpemu5c6e" path="res://Mundo/poste.tscn" id="15_2331j"]
 [ext_resource type="Texture2D" uid="uid://ggmkrope3xd1" path="res://Textures/Mundo/ground-tile.png" id="16_u3lmj"]
 [ext_resource type="Texture2D" uid="uid://dd53ftumur6a0" path="res://Textures/Mundo/path-tile.png" id="17_js5jr"]
+[ext_resource type="PackedScene" uid="uid://dril74a5vbvpo" path="res://Mundo/poste-luz.tscn" id="19_sk5ky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js5jr"]
 texture = ExtResource("16_u3lmj")
@@ -149,6 +151,8 @@ inimigo_tempo_spawn = 0
 metadata/_custom_type_script = "uid://be4nsgongmgi2"
 
 [node name="Mundo" type="Node2D"]
+script = ExtResource("1_a8hev")
+cena_poste = ExtResource("15_2331j")
 
 [node name="CaminhosGround" type="TileMapLayer" parent="."]
 top_level = true
@@ -193,126 +197,88 @@ script = ExtResource("11_1rr0v")
 
 [node name="Postes" type="Node" parent="."]
 
-[node name="Sprite2D" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(-80, -32)
+[node name="Poste" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-392, 352)
 
-[node name="Sprite2D2" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(112, -32)
+[node name="Poste2" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-248, 392)
 
-[node name="Sprite2D3" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(304, -32)
+[node name="Poste3" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-88, 328)
 
-[node name="Sprite2D4" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(-272, -32)
+[node name="Poste4" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(112, 376)
 
-[node name="Sprite2D5" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(-272, 160)
+[node name="Poste5" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(120, 184)
 
-[node name="Sprite2D6" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(-80, 160)
+[node name="Poste7" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(288, 144)
 
-[node name="Sprite2D7" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(112, 160)
+[node name="Poste8" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(536, 192)
 
-[node name="Sprite2D8" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(304, 160)
+[node name="Poste9" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(336, 320)
 
-[node name="Sprite2D9" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(496, 160)
+[node name="Poste10" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(480, 392)
 
-[node name="Sprite2D10" parent="Postes" instance=ExtResource("15_2331j")]
+[node name="Poste11" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-288, 184)
+
+[node name="Poste12" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-328, -8)
+
+[node name="Poste13" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-72, 0)
+
+[node name="Poste14" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(72, -72)
+
+[node name="Poste15" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(136, 8)
+
+[node name="Poste16" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(304, -48)
+
+[node name="Poste17" parent="Postes" instance=ExtResource("19_sk5ky")]
 position = Vector2(496, -32)
 
-[node name="Sprite2D11" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(496, -224)
+[node name="Poste18" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(480, -192)
 
-[node name="Sprite2D12" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(304, -224)
+[node name="Poste19" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(312, -216)
 
-[node name="Sprite2D13" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(112, -224)
+[node name="Poste20" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(120, -208)
 
-[node name="Sprite2D14" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(-80, -224)
+[node name="Poste21" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-80, -192)
 
-[node name="Sprite2D15" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(-272, -224)
+[node name="Poste22" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-232, -208)
 
-[node name="Sprite2D16" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(-272, 352)
+[node name="Poste23" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-488, -208)
 
-[node name="Sprite2D17" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(-80, 352)
+[node name="Poste24" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-528, -24)
 
-[node name="Sprite2D18" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(112, 352)
+[node name="Poste25" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-472, 176)
 
-[node name="Sprite2D19" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(304, 352)
+[node name="Poste26" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-528, 352)
 
-[node name="Sprite2D20" parent="Postes" instance=ExtResource("15_2331j")]
-position = Vector2(496, 352)
+[node name="Poste27" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(680, -16)
 
-[node name="Postes2" type="Node" parent="."]
+[node name="Poste28" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-584, 184)
 
-[node name="Sprite2D" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(880, -32)
-
-[node name="Sprite2D2" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1072, -32)
-
-[node name="Sprite2D3" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1264, -32)
-
-[node name="Sprite2D4" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(688, -32)
-
-[node name="Sprite2D5" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(688, 160)
-
-[node name="Sprite2D6" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(880, 160)
-
-[node name="Sprite2D7" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1072, 160)
-
-[node name="Sprite2D8" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1264, 160)
-
-[node name="Sprite2D9" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1456, 160)
-
-[node name="Sprite2D10" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1456, -32)
-
-[node name="Sprite2D11" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1456, -224)
-
-[node name="Sprite2D12" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1264, -224)
-
-[node name="Sprite2D13" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1072, -224)
-
-[node name="Sprite2D14" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(880, -224)
-
-[node name="Sprite2D15" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(688, -224)
-
-[node name="Sprite2D16" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(688, 352)
-
-[node name="Sprite2D17" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(880, 352)
-
-[node name="Sprite2D18" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1072, 352)
-
-[node name="Sprite2D19" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1264, 352)
-
-[node name="Sprite2D20" parent="Postes2" instance=ExtResource("15_2331j")]
-position = Vector2(1456, 352)
+[node name="Poste6" parent="Postes" instance=ExtResource("19_sk5ky")]
+position = Vector2(-128, 144)
 
 [connection signal="playermorre" from="Player" to="som_musica" method="_on_player_playermorre"]

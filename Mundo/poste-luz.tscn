@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dril74a5vbvpo"]
+
+[ext_resource type="Texture2D" uid="uid://dvr6jsad4grln" path="res://Textures/Mundo/poste-v1.png" id="1_ncnr3"]
+[ext_resource type="Texture2D" uid="uid://bnietf8a2slvd" path="res://Textures/Player/128x128 textures (22).png" id="2_avs6r"]
+[ext_resource type="Script" uid="uid://dbxr2y8t4r71p" path="res://Player/point_light_2d.gd" id="3_uasuq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2cj2x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ph150"]
+radius = 4.0
+height = 12.0
+
+[node name="Poste" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ncnr3")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(0, -13)
+scale = Vector2(0.367188, 0.328125)
+color = Color(1, 1, 1, 0.686275)
+energy = 0.9
+texture = ExtResource("2_avs6r")
+texture_scale = 2.5
+script = ExtResource("3_uasuq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(0, 14)
+physics_material_override = SubResource("PhysicsMaterial_2cj2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ph150")

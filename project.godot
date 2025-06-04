@@ -16,7 +16,7 @@ Aprimore seus ataques e destrua as ordas de inimigos.
 "
 run/main_scene="uid://ddu3nlrjf7cev"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://7g54m5ko1p2f"
 
 [autoload]
 

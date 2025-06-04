@@ -15,9 +15,13 @@ var angulo_mais = Vector2.ZERO
 
 signal remove_do_array(object)
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready():
+	animation_player.play("andar")
+	
 	match nivel:
 		1:
 			hp = 999
